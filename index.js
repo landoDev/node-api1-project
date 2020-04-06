@@ -23,7 +23,7 @@ server.post('/api/users', (req, res) =>{
             console.log(newUser); 
             users.push(newUser)
             return res.status(201).json(users);
-    }
+    } 
     // THE BELOW CODE RESULTS IN AN ERROR EVEN THOUGH CODE WORKS CAN'T DO TERNARY WITH MULTIPLE CHECKS IN RESPONSE
     // newUser.name == "" && newUser.bio == "" ?  res.status(400).json({errorMessage: "Please provide name and bio for the user"}) 
     // :
@@ -32,6 +32,10 @@ server.post('/api/users', (req, res) =>{
     // users.push(newUser)
     // res.status(200).json(users);
 });
+
+server.get('/api/users', (req, res) => {
+    res.json(users)
+})
 
 server.get('/api/users/:id', (req, res) =>{
     const userId = req.params.id;
